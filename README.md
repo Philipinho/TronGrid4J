@@ -1,2 +1,2 @@
-# TronGrid-Java-API
-Java API Client for the TronGrid API
+# TronGrid4J
+Java Client for the TronGrid API
