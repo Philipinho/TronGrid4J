@@ -26,9 +26,9 @@ public interface TronGridApiClient {
 
     Asset getAssetByName(String name, Map<String, String> params);
 
-    Asset getAssetById(String name);
+    Asset getAssetById(String id);
 
-    Asset getAssetById(String name, boolean onlyConfirmed);
+    Asset getAssetById(String id, boolean onlyConfirmed);
 
 
 }

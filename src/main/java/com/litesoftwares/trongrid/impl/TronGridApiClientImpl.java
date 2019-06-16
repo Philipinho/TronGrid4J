@@ -67,8 +67,8 @@ public class TronGridApiClientImpl implements TronGridApiClient {
     }
 
     @Override
-    public Asset getAssetById(String name) {
-        return getAssetById(name,false);
+    public Asset getAssetById(String id) {
+        return getAssetById(id,false);
     }
 
     @Override
