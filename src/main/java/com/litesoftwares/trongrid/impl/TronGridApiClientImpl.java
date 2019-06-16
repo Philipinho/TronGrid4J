@@ -3,6 +3,7 @@ package com.litesoftwares.trongrid.impl;
 import com.litesoftwares.trongrid.TronGridAPIService;
 import com.litesoftwares.trongrid.TronGridApi;
 import com.litesoftwares.trongrid.TronGridApiClient;
+import com.litesoftwares.trongrid.domain.Asset;
 import com.litesoftwares.trongrid.domain.Ping;
 import com.litesoftwares.trongrid.domain.Account;
 import com.litesoftwares.trongrid.domain.Transaction;
@@ -45,4 +46,33 @@ public class TronGridApiClientImpl implements TronGridApiClient {
         return tronGridApi.executeSync(tronGridAPIService.getTransactions(address,params));
     }
 
+    @Override
+    public Asset getAssets() {
+        return getAssets(nullQuery);
+    }
+
+    @Override
+    public Asset getAssets(Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getAssets(params));
+    }
+
+    @Override
+    public Asset getAssetByName(String name) {
+        return getAssetByName(name, nullQuery);
+    }
+
+    @Override
+    public Asset getAssetByName(String name, Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getAssetByName(name, params));
+    }
+
+    @Override
+    public Asset getAssetById(String name) {
+        return getAssetById(name,false);
+    }
+
+    @Override
+    public Asset getAssetById(String id, boolean onlyConfirmed) {
+        return tronGridApi.executeSync(tronGridAPIService.getAssetById(id, onlyConfirmed));
+    }
 }
