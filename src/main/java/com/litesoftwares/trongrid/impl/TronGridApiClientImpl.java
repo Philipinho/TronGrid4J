@@ -112,4 +112,14 @@ public class TronGridApiClientImpl implements TronGridApiClient {
     public Event getEventsByLatestBlock(boolean onlyConfirmed) {
         return tronGridApi.executeSync(tronGridAPIService.getEventsByLatestBlock(onlyConfirmed));
     }
+
+    @Override
+    public Contract getTxInfoByContract(String contractAddress) {
+        return getTxInfoByContract(contractAddress, nullQuery);
+    }
+
+    @Override
+    public Contract getTxInfoByContract(String contractAddress, Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getTxInfoByContract(contractAddress, params));
+    }
 }

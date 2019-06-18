@@ -43,5 +43,8 @@ public interface TronGridApiClient {
 
     Event getEventsByLatestBlock(boolean onlyConfirmed);
 
+    Contract getTxInfoByContract(String contractAddress);
+
+    Contract getTxInfoByContract(String contractAddress, Map<String, String> params);
 
 }

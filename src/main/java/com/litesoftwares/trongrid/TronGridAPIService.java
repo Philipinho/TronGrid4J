@@ -38,6 +38,9 @@ public interface TronGridAPIService {
     @GET("/v1/blocks/latest/events")
     Call<Event> getEventsByLatestBlock(@Query("only_confirmed") boolean onlyConfirmed);
 
+    @GET("/v1/contracts/{contractAddress}/transactions")
+    Call<Contract> getTxInfoByContract(@Path("contractAddress") String contractAddress, @QueryMap Map<String, String> params);
+
 
 
 

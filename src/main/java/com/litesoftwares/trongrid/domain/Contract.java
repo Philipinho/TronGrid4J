@@ -8,22 +8,33 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Transaction {
+public class Contract {
+
     @JsonProperty("success")
     private boolean success;
     @JsonProperty("meta")
     private Meta meta;
     @JsonProperty("data")
-    private List<Data> data = null;
+    private List<Data> data;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @lombok.Data
-    public static class Contract {
+    public static class ContractData {
 
         @JsonProperty("parameter")
         private Parameter parameter;
         @JsonProperty("type")
         private String type;
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @lombok.Data
+    public static class NoteData {
+
+        @JsonProperty("note")
+        private String note;
+        @JsonProperty("rejected")
+        private boolean rejected;
 
     }
 
@@ -38,11 +49,21 @@ public class Transaction {
         @JsonProperty("raw_data_hex")
         private String rawDataHex;
         @JsonProperty("ret")
-        private List<Ret> ret = null;
+        private List<Ret> ret;
         @JsonProperty("signature")
-        private List<String> signature = null;
+        private List<String> signature;
         @JsonProperty("txID")
         private String txID;
+        @JsonProperty("data")
+        private NoteData data;
+        @JsonProperty("from_address")
+        private String fromAddress;
+        @JsonProperty("internal_tx_id")
+        private String internalTxId;
+        @JsonProperty("to_address")
+        private String toAddress;
+        @JsonProperty("tx_id")
+        private String txId;
 
     }
 
@@ -87,8 +108,8 @@ public class Transaction {
     @lombok.Data
     public static class RawData {
 
-        @JsonProperty("contractData")
-        private List<Contract> contract = null;
+        @JsonProperty("contract")
+        private List<ContractData> contractData;
         @JsonProperty("expiration")
         private long expiration;
         @JsonProperty("fee_limit")
@@ -129,5 +150,4 @@ public class Transaction {
         private String ownerAddress;
 
     }
-
 }
