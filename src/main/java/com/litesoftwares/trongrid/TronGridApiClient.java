@@ -1,9 +1,6 @@
 package com.litesoftwares.trongrid;
 
-import com.litesoftwares.trongrid.domain.Asset;
-import com.litesoftwares.trongrid.domain.Ping;
-import com.litesoftwares.trongrid.domain.Account;
-import com.litesoftwares.trongrid.domain.Transaction;
+import com.litesoftwares.trongrid.domain.*;
 
 import java.util.Map;
 
@@ -29,6 +26,22 @@ public interface TronGridApiClient {
     Asset getAssetById(String id);
 
     Asset getAssetById(String id, boolean onlyConfirmed);
+
+    Event getEventsByTxId(String transactionId);
+
+    Event getEventsByTxId(String transactionId, Map<String, String> params);
+
+    Event getEventsByContractAddress(String contractAddress);
+
+    Event getEventsByContractAddress(String contractAddress, Map<String, String> params);
+
+    Event getEventsByBlockNumber(String blockNumber);
+
+    Event getEventsByBlockNumber(String blockNumber, boolean onlyConfirmed);
+
+    Event getEventsByLatestBlock();
+
+    Event getEventsByLatestBlock(boolean onlyConfirmed);
 
 
 }

@@ -3,10 +3,7 @@ package com.litesoftwares.trongrid.impl;
 import com.litesoftwares.trongrid.TronGridAPIService;
 import com.litesoftwares.trongrid.TronGridApi;
 import com.litesoftwares.trongrid.TronGridApiClient;
-import com.litesoftwares.trongrid.domain.Asset;
-import com.litesoftwares.trongrid.domain.Ping;
-import com.litesoftwares.trongrid.domain.Account;
-import com.litesoftwares.trongrid.domain.Transaction;
+import com.litesoftwares.trongrid.domain.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,5 +71,45 @@ public class TronGridApiClientImpl implements TronGridApiClient {
     @Override
     public Asset getAssetById(String id, boolean onlyConfirmed) {
         return tronGridApi.executeSync(tronGridAPIService.getAssetById(id, onlyConfirmed));
+    }
+
+    @Override
+    public Event getEventsByTxId(String transactionId) {
+        return getEventsByTxId(transactionId, nullQuery);
+    }
+
+    @Override
+    public Event getEventsByTxId(String transactionId, Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getEventsByTxId(transactionId, params));
+    }
+
+    @Override
+    public Event getEventsByContractAddress(String contractAddress) {
+        return getEventsByContractAddress(contractAddress, nullQuery);
+    }
+
+    @Override
+    public Event getEventsByContractAddress(String contractAddress, Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getEventsByContractAddress(contractAddress, params));
+    }
+
+    @Override
+    public Event getEventsByBlockNumber(String blockNumber) {
+        return getEventsByBlockNumber(blockNumber,false);
+    }
+
+    @Override
+    public Event getEventsByBlockNumber(String blockNumber, boolean onlyConfirmed) {
+        return tronGridApi.executeSync(tronGridAPIService.getEventsByBlockNumber(blockNumber,onlyConfirmed));
+    }
+
+    @Override
+    public Event getEventsByLatestBlock() {
+        return getEventsByLatestBlock(false);
+    }
+
+    @Override
+    public Event getEventsByLatestBlock(boolean onlyConfirmed) {
+        return tronGridApi.executeSync(tronGridAPIService.getEventsByLatestBlock(onlyConfirmed));
     }
 }

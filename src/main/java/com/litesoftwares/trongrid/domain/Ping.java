@@ -8,8 +8,6 @@ import lombok.Setter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-@Getter
-@Setter
 public class Ping {
     @JsonProperty("Welcome to")
     private String welcomeTo;
