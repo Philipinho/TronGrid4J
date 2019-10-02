@@ -46,5 +46,9 @@ public interface TronGridApiClient {
     Contract getTxInfoByContract(String contractAddress);
 
     Contract getTxInfoByContract(String contractAddress, Map<String, String> params);
+    
+    TRC20Contract getTRC20Holders(String contractAddress);
+
+    TRC20Contract getTRC20Holders(String contractAddress, Map<String, String> params);
 
 }
