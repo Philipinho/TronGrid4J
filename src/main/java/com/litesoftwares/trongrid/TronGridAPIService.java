@@ -40,8 +40,7 @@ public interface TronGridAPIService {
 
     @GET("/v1/contracts/{contractAddress}/transactions")
     Call<Contract> getTxInfoByContract(@Path("contractAddress") String contractAddress, @QueryMap Map<String, String> params);
-
-
-
-
+    
+    @GET("/v1/contracts/{contractAddress}/tokens")
+    Call<TRC20Contract> getTRC20Holders(@Path("contractAddress") String contractAddress, @QueryMap Map<String, String> params);
 }
