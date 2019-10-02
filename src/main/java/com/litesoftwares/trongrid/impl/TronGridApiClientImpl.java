@@ -123,7 +123,7 @@ public class TronGridApiClientImpl implements TronGridApiClient {
         return tronGridApi.executeSync(tronGridAPIService.getTxInfoByContract(contractAddress, params));
     }
     
-     @Override
+    @Override
     public TRC20Contract getTRC20Holders(String contractAddress) {
         return getTRC20Holders(contractAddress, nullQuery);
     }
