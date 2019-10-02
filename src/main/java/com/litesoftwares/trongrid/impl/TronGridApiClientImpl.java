@@ -122,4 +122,14 @@ public class TronGridApiClientImpl implements TronGridApiClient {
     public Contract getTxInfoByContract(String contractAddress, Map<String, String> params) {
         return tronGridApi.executeSync(tronGridAPIService.getTxInfoByContract(contractAddress, params));
     }
+    
+    @Override
+    public TRC20Contract getTRC20Holders(String contractAddress) {
+        return getTRC20Holders(contractAddress, nullQuery);
+    }
+
+    @Override
+    public TRC20Contract getTRC20Holders(String contractAddress, Map<String, String> params) {
+        return tronGridApi.executeSync(tronGridAPIService.getTRC20Holders(contractAddress, params));
+    }
 }
